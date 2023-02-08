@@ -35,6 +35,7 @@ lock:
   # Required:
   - platform: nuki_opener
     name: Nuki Opener
+    opener_id: the_id_of_your_opener
     is_connected: 
       name: "Nuki Connected"
     is_paired: 
