@@ -32,7 +32,7 @@ class NukiOpenerComponent : public lock::Lock, public PollingComponent, public a
   static const uint8_t BLE_CONNECT_TIMEOUT_RETRIES = 1;
 
 public:
-  const uint32_t deviceId_ = 0x31d7ad1a; // get this ID from the Nuki app
+  uint32_t deviceId_ = 0x31d7ad1a; // get this ID from the Nuki app
   const std::string deviceName_ = "Door"; // get the name for the Nuki app 
 
   explicit NukiOpenerComponent() : Lock(), unpair_(false) { this->traits.set_supports_open(true); }
@@ -46,6 +46,7 @@ public:
   void set_doorbell(binary_sensor::BinarySensor *doorbell) { this->doorbell_ = doorbell; }
   void set_battery_level(sensor::Sensor *battery_level) { this->battery_level_ = battery_level; }
   void set_unpair(bool unpair) {this->unpair_ = unpair; }
+  void set_nuki_id(uint32_t nuki_id) {this->deviceId_ = nuki_id;}
 
   float get_setup_priority() const override { return setup_priority::HARDWARE - 1.0f; }
 

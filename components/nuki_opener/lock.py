@@ -5,6 +5,7 @@ from esphome.const import CONF_ID, CONF_BATTERY_LEVEL, DEVICE_CLASS_CONNECTIVITY
 
 AUTO_LOAD = ["binary_sensor", "sensor", "switch"]
 
+CONF_NUKI_ID = "opener_id"
 CONF_IS_CONNECTED = "is_connected"
 CONF_IS_PAIRED = "is_paired"
 CONF_UNPAIR = "unpair"
@@ -17,6 +18,7 @@ NukiOpener = nuki_opener_ns.class_('NukiOpenerComponent', lock.Lock, switch.Swit
 
 CONFIG_SCHEMA = lock.LOCK_SCHEMA.extend({
     cv.GenerateID(): cv.declare_id(NukiOpener),
+    cv.Required(CONF_NUKI_ID): cv.int_,
     cv.Required(CONF_IS_CONNECTED): binary_sensor.binary_sensor_schema(
                     device_class=DEVICE_CLASS_CONNECTIVITY,
                 ),
@@ -41,6 +43,8 @@ async def to_code(config):
     await cg.register_component(var, config)
     await lock.register_lock(var, config)
 
+    if CONF_NUKI_ID in config:
+        cg.add(var.set_nuki_id(config[CONF_NUKI_ID]))
     if CONF_IS_CONNECTED in config:
         sens = await binary_sensor.new_binary_sensor(config[CONF_IS_CONNECTED])
         cg.add(var.set_is_connected(sens))
