@@ -10,7 +10,7 @@ This module builds an ESPHome lock platform for Nuki Opener (nuki_opener) that c
 
 The lock entity is updated whenever the look changes state (via Nuki App, HA, or manually) using Nuki BT advertisement mechanism.
 
-![screenshot](https://user-images.githubusercontent.com/1754967/183266065-d1a6e9fe-d7f7-4295-9c0d-4bf9235bf4cd.png)
+[//]:![screenshot](https://user-images.githubusercontent.com/1754967/183266065-d1a6e9fe-d7f7-4295-9c0d-4bf9235bf4cd.png)
 
 ## How to use
 Add the following to the ESPHome yaml file:
