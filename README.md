@@ -1,5 +1,4 @@
 # Nuki Opener for ESPHome (ESP32)
-[![Build Component](https://github.com/uriyacovy/ESPHome_nuki_lock/actions/workflows/build.yaml/badge.svg)](https://github.com/uriyacovy/ESPHome_nuki_lock/actions/workflows/build.yaml)
 
 This module builds an ESPHome lock platform for Nuki Opener (nuki_opener) that creates the following entities in Home Assistant:
 - Lock 
